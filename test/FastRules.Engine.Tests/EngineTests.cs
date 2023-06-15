@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace FastRules.Engine.Tests
 {
     public class EngineTests
@@ -79,6 +81,24 @@ namespace FastRules.Engine.Tests
 
             // Assert
             action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void GetRules_RulesAdded_ReturnsAllRules()
+        {
+            // Arrange
+            var rule1 = new Mock<IRule>();
+            var rule2 = new Mock<IRule>();
+            var rule3 = new Mock<IRule>();
+            _engine.AddRule(rule1.Object);
+            _engine.AddRule(rule2.Object);
+            _engine.AddRule(rule3.Object);
+
+            // Act
+            var rulesCount = _engine.Rules.Count();
+
+            // Assert
+            rulesCount.Should().Be(3);
         }
     }
 }

@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace FastRules.Engine
 {
     public class Engine
     {
+        private readonly List<IRule> _rules;
+
         private bool isBuilt = true;
+
+        public IEnumerable<IRule> Rules => _rules;
+
+        public Engine()
+        {
+            _rules = new List<IRule>();
+        }
 
         public void AddRule(IRule rule)
         {
+            _rules.Add(rule);
             isBuilt = false;
         }
 

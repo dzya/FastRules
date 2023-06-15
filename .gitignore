@@ -1,0 +1,5 @@
+/src/.vs
+/src/FastRules.Engine/obj
+/src/FastRules.Engine/bin
+/test/FastRules.Engine.Tests/bin
+/test/FastRules.Engine.Tests/obj

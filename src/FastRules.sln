@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastRules.Engine", "FastRules.Engine\FastRules.Engine.csproj", "{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastRules.Engine.Tests", "..\test\FastRules.Engine.Tests\FastRules.Engine.Tests.csproj", "{1DA513BF-E77B-4DD9-802A-A141021CFCF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC9B5D27-B80A-4F64-B0C0-316DB87C6845}
+	EndGlobalSection
+EndGlobal

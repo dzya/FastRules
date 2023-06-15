@@ -1,3 +1,5 @@
+using FastRules.Engine.ReteNetwork;
+using FastRules.Engine.ReteNetwork.Builders;
 using System.Data;
 
 namespace FastRules.Engine.Tests
@@ -6,9 +8,15 @@ namespace FastRules.Engine.Tests
     {
         private readonly Engine _engine;
         private readonly Fixture _auto;
+        private readonly Mock<INetworkBuilder> _networkBuilder;
 
         public EngineTests() {
-            _engine = new Engine();
+            var network = Mock.Of<INetwork>();
+
+            _networkBuilder = new Mock<INetworkBuilder>();
+            _networkBuilder.Setup(x => x.Build()).Returns(network);
+
+            _engine = new Engine(_networkBuilder.Object);
             _auto = new Fixture();
         }
 
@@ -19,6 +27,7 @@ namespace FastRules.Engine.Tests
             var fact = new Fact();
 
             // Act
+            _engine.Build();
             var result = _engine.Run(fact);
 
             // Assert
@@ -50,6 +59,19 @@ namespace FastRules.Engine.Tests
 
             // Assert
             action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Run_WithoutBuildWithoutAddingRule_ThrowsException()
+        {
+            // Arrange
+            var fact = new Fact();
+
+            // Act
+            var action = () => _engine.Run(fact);
+
+            // Assert
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]

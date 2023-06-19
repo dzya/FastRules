@@ -14,6 +14,6 @@ namespace FastRules.Engine.Operations
 
         public abstract OperationIds Id { get; }
 
-        public abstract bool Result { get; }
+        public virtual bool Result => Predicate((LeftOperand, RightOperand));
     }
 }

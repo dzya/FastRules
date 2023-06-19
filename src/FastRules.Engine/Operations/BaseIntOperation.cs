@@ -4,9 +4,7 @@ using System.Text;
 
 namespace FastRules.Engine.Operations
 {
-    public enum OperationIds
+    public abstract class BaseIntOperation : BaseOperation<int>
     {
-        StringEquals = 0,
-        IntEquals = 10,
     }
 }

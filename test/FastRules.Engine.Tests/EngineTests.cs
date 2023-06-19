@@ -1,5 +1,6 @@
 using FastRules.Engine.ReteNetwork;
 using FastRules.Engine.ReteNetwork.Builders;
+using FastRules.Engine.Rules;
 using System.Data;
 
 namespace FastRules.Engine.Tests
@@ -52,7 +53,7 @@ namespace FastRules.Engine.Tests
         public void AddRule_AnyRule_NoExceptions()
         {
             // Arrange
-            var rule = new Mock<IRule>();
+            var rule = new Mock<IRule<object>>();
 
             // Act
             var action = () => _engine.AddRule(rule.Object);
@@ -79,7 +80,7 @@ namespace FastRules.Engine.Tests
         {
             // Arrange
             var fact = new Fact();
-            var rule = new Mock<IRule>();
+            var rule = new Mock<IRule<object>>();
             _engine.AddRule(rule.Object);
 
             // Act
@@ -94,7 +95,7 @@ namespace FastRules.Engine.Tests
         {
             // Arrange
             var fact = new Fact();
-            var rule = new Mock<IRule>();
+            var rule = new Mock<IRule<object>>();
             _engine.AddRule(rule.Object);
             _engine.Build();
 
@@ -109,9 +110,9 @@ namespace FastRules.Engine.Tests
         public void GetRules_RulesAdded_ReturnsAllRules()
         {
             // Arrange
-            var rule1 = new Mock<IRule>();
-            var rule2 = new Mock<IRule>();
-            var rule3 = new Mock<IRule>();
+            var rule1 = new Mock<IRule<object>>();
+            var rule2 = new Mock<IRule<object>>();
+            var rule3 = new Mock<IRule<object>>();
             _engine.AddRule(rule1.Object);
             _engine.AddRule(rule2.Object);
             _engine.AddRule(rule3.Object);

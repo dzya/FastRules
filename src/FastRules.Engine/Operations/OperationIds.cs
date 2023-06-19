@@ -8,5 +8,6 @@ namespace FastRules.Engine.Operations
     {
         StringEquals = 0,
         IntEquals = 10,
+        IntLessThan = 11,
     }
 }

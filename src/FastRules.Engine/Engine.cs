@@ -1,5 +1,6 @@
 ﻿using FastRules.Engine.ReteNetwork;
 using FastRules.Engine.ReteNetwork.Builders;
+using FastRules.Engine.Rules;
 using System;
 using System.Collections.Generic;
 using System.Data;

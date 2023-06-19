@@ -29,4 +29,8 @@
     <ProjectReference Include="..\..\src\FastRules.Engine\FastRules.Engine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Conditions\" />
+  </ItemGroup>
+
 </Project>

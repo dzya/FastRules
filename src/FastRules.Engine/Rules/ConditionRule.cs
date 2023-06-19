@@ -5,9 +5,9 @@ using System.Text;
 
 namespace FastRules.Engine.Rules
 {
-    public class ConditionRule : BaseRule
+    public class ConditionRule<T> : BaseRule<T>
     {
-        public ConditionRule(ICondition condition) : base(condition)
+        public ConditionRule(ICondition<T> condition) : base(condition)
         {
         }
     }

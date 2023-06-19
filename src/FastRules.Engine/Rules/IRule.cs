@@ -5,8 +5,8 @@ using System.Text;
 
 namespace FastRules.Engine.Rules
 {
-    public interface IRule
+    public interface IRule<T>
     {
-        public ICondition Condition { get; }
+        public ICondition<T> Condition { get; }
     }
 }

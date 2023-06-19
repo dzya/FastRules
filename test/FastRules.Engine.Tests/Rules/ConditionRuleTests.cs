@@ -1,11 +1,11 @@
 ﻿using Castle.Components.DictionaryAdapter;
+using FastRules.Engine.Conditions;
 using FastRules.Engine.Rules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ICondition = FastRules.Engine.Conditions.ICondition;
 
 namespace FastRules.Engine.Tests.Rules
 {
@@ -15,10 +15,10 @@ namespace FastRules.Engine.Tests.Rules
         public void Constructed_WithDefaultRule_NoExceptions()
         {
             // Arrange
-            var condition = Mock.Of<ICondition>();
+            var condition = Mock.Of<ICondition<object>>();
 
             // Act
-            var exception = Record.Exception(() => new ConditionRule(condition));
+            var exception = Record.Exception(() => new ConditionRule<object>(condition));
 
             // Assert
             exception.Should().BeNull();

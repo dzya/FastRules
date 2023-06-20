@@ -35,7 +35,7 @@ namespace FastRules.Engine
             isBuilt = true;
         }
 
-        public IEnumerable<RuleAction> Run(Fact fact)
+        public IEnumerable<RuleAction> Run(Object fact)
         {
             if(!isBuilt)
             {

@@ -7,6 +7,6 @@ namespace FastRules.Engine.ReteNetwork
 {
     public interface INetwork
     {
-        public IEnumerable<RuleAction> Run(ISession session, Fact fact);
+        public IEnumerable<RuleAction> Run(ISession session, Object fact);
     }
 }

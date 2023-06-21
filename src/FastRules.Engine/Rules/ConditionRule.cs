@@ -7,7 +7,7 @@ namespace FastRules.Engine.Rules
 {
     public class ConditionRule<T> : BaseRule<T>
     {
-        public ConditionRule(ICondition<T> condition) : base(condition)
+        public ConditionRule(ICondition<T> condition, RuleAction ruleAction) : base(condition, ruleAction)
         {
         }
     }

@@ -8,5 +8,7 @@ namespace FastRules.Engine.Rules
     public interface IRule<T>
     {
         public ICondition<T> Condition { get; }
+
+        public RuleAction? Fire(object fact);
     }
 }

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace FastRules.Engine.ReteNetwork.Builders
 {
-    public interface INetworkBuilder
+    public interface INodesBuilder
     {
-        public INetwork Build(IEnumerable<IRule<object>> rules);
+        public IReteNode Build(IEnumerable<IRule<object>> rules);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FastRules.Engine.Conditions;
 using FastRules.Engine.Operations;
+using FastRules.Engine.Tests.TestData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace FastRules.Engine.Tests.Conditions
         {
             // Arrange
             var stringCondition = new StringOperationCondition();
-            var fact = _fixture.Create<Fact>();
+            var fact = _fixture.Create<TestFact>();
 
             // Act
             var exception = Record.Exception(() => stringCondition.IsPositive(fact));
@@ -44,7 +45,7 @@ namespace FastRules.Engine.Tests.Conditions
         {
             // Arrange
             var stringCondition = new StringOperationCondition();
-            var fact = _fixture.Create<Fact>();
+            var fact = _fixture.Create<TestFact>();
             stringCondition.Operation = new StringEqualsOperation();
 
             // Act
@@ -60,7 +61,7 @@ namespace FastRules.Engine.Tests.Conditions
         {
             // Arrange
             var stringCondition = new StringOperationCondition();
-            var fact = _fixture.Create<Fact>();
+            var fact = _fixture.Create<TestFact>();
             stringCondition.Operation = new StringEqualsOperation();
             stringCondition.GetLeftOperand = (x) => { return "Name"; };
             stringCondition.GetRightOperand = (x) => { return "Value"; };
@@ -79,7 +80,7 @@ namespace FastRules.Engine.Tests.Conditions
         {
             // Arrange
             var stringCondition = new StringOperationCondition();
-            var fact = _fixture.Create<Fact>();
+            var fact = _fixture.Create<TestFact>();
             stringCondition.Operation = new StringEqualsOperation();
             stringCondition.GetLeftOperand = (x) => { return left; };
             stringCondition.GetRightOperand = (x) => { return right; };
@@ -99,7 +100,7 @@ namespace FastRules.Engine.Tests.Conditions
         {
             // Arrange
             var stringCondition = new StringOperationCondition();
-            var fact = _fixture.Create<Fact>();
+            var fact = _fixture.Create<TestFact>();
             stringCondition.Operation = new StringEqualsOperation();
             stringCondition.GetLeftOperand = (x) => { return left; };
             stringCondition.GetRightOperand = (x) => { return right; };

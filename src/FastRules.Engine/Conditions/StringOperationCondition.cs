@@ -10,7 +10,7 @@ namespace FastRules.Engine.Conditions
         { 
         }
 
-        public override bool IsPositive(Fact fact)
+        public override bool IsPositive(Object fact)
         {
             if(Operation == null)
             {

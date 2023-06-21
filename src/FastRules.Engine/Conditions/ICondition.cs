@@ -9,10 +9,10 @@ namespace FastRules.Engine.Conditions
     {
         public IOperation<T> Operation { get; set; }
 
-        public Func<Fact, T> GetLeftOperand { get; set; }
+        public Func<Object, T> GetLeftOperand { get; set; }
 
-        public Func<Fact, T> GetRightOperand { get; set; }
+        public Func<Object, T> GetRightOperand { get; set; }
 
-        public bool IsPositive(Fact fact);
+        public bool IsPositive(Object fact);
     }
 }

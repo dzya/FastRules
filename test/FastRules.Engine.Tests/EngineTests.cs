@@ -1,6 +1,7 @@
 using FastRules.Engine.ReteNetwork;
 using FastRules.Engine.ReteNetwork.Builders;
 using FastRules.Engine.Rules;
+using FastRules.Engine.Tests.TestData;
 using System.Data;
 
 namespace FastRules.Engine.Tests
@@ -15,7 +16,9 @@ namespace FastRules.Engine.Tests
             var network = Mock.Of<INetwork>();
 
             _networkBuilder = new Mock<INetworkBuilder>();
-            _networkBuilder.Setup(x => x.Build()).Returns(network);
+            _networkBuilder.Setup(x => x.Build(
+                It.IsAny<IEnumerable<IRule<object>>>()) 
+                ).Returns(network);
 
             _engine = new Engine(_networkBuilder.Object);
             _auto = new Fixture();
@@ -25,7 +28,7 @@ namespace FastRules.Engine.Tests
         public void Run_EmptyFactEmptyRules_ReturnEmptyActions()
         {
             // Arrange
-            var fact = new Fact();
+            var fact = _auto.Create<TestFact>();
 
             // Act
             _engine.Build();
@@ -40,7 +43,7 @@ namespace FastRules.Engine.Tests
         public void Build_EmptyFactEmptyRules_NoExceptions()
         {
             // Arrange
-            var fact = new Fact();
+            var fact = _auto.Create<TestFact>();
 
             // Act
             var action = () => _engine.Build();
@@ -66,7 +69,7 @@ namespace FastRules.Engine.Tests
         public void Run_WithoutBuildWithoutAddingRule_ThrowsException()
         {
             // Arrange
-            var fact = new Fact();
+            var fact = _auto.Create<TestFact>();
 
             // Act
             var action = () => _engine.Run(fact);
@@ -79,7 +82,7 @@ namespace FastRules.Engine.Tests
         public void Run_WithoutBuildAfterAddingRule_ThrowsException()
         {
             // Arrange
-            var fact = new Fact();
+            var fact = _auto.Create<TestFact>();
             var rule = new Mock<IRule<object>>();
             _engine.AddRule(rule.Object);
 
@@ -94,7 +97,7 @@ namespace FastRules.Engine.Tests
         public void Run_WithBuildAfterAddingRule_NoExceptions()
         {
             // Arrange
-            var fact = new Fact();
+            var fact = _auto.Create<TestFact>();
             var rule = new Mock<IRule<object>>();
             _engine.AddRule(rule.Object);
             _engine.Build();

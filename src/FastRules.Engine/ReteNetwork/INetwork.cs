@@ -10,6 +10,8 @@ namespace FastRules.Engine.ReteNetwork
     {
         public void AddRule(IRule<object> rule);
 
+        public void Build();
+
         public IEnumerable<RuleAction> Run(ISession session, Object fact);
     }
 }

@@ -26,12 +26,44 @@ namespace FastRules.Engine.Tests.ReteNetwork
             // Arrange
             var session = Mock.Of<ISession>(MockBehavior.Strict);
             var fact = _fixture.Create<TestFact>();
+            _network.Build();
 
             // Act
             var action = () => _network.Run(session, fact);
 
             // Assert
             action.Should().NotThrow();
+        }
+
+        [Fact]
+        public void Run_WithoutBuild_ThrowsException()
+        {
+            // Arrange
+            var session = Mock.Of<ISession>(MockBehavior.Strict);
+            var fact = _fixture.Create<TestFact>();
+
+            // Act
+            var action = () => _network.Run(session, fact);
+
+            // Assert
+            action.Should().Throw<InvalidOperationException>();
+        }
+
+        [Fact]
+        public void AddRule_AfterBuild_ThrowsException()
+        {
+            // Arrange
+            var session = Mock.Of<ISession>(MockBehavior.Strict);
+            var fact = _fixture.Create<TestFact>();
+            var rule = new Mock<IRule<object>>();
+
+            _network.Build();
+           
+            // Act
+            var action = () => _network.AddRule(rule.Object);
+
+            // Assert
+            action.Should().Throw<InvalidOperationException>();
         }
 
         [Fact]
@@ -50,6 +82,7 @@ namespace FastRules.Engine.Tests.ReteNetwork
 
             _network.AddRule(rule1.Object);
             _network.AddRule(rule2.Object);
+            _network.Build();
 
             // Act
             var result = _network.Run(session, fact);
@@ -76,6 +109,7 @@ namespace FastRules.Engine.Tests.ReteNetwork
 
             _network.AddRule(rule1.Object);
             _network.AddRule(rule2.Object);
+            _network.Build();
 
             // Act
             var result = _network.Run(session, fact);
@@ -101,6 +135,7 @@ namespace FastRules.Engine.Tests.ReteNetwork
 
             _network.AddRule(rule1.Object);
             _network.AddRule(rule2.Object);
+            _network.Build();
 
             // Act
             var result = _network.Run(session, fact);

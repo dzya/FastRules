@@ -55,11 +55,62 @@ namespace FastRules.Engine.Tests.ReteNetwork
             var result = _network.Run(session, fact);
 
             // Assert
+            result.Count().Should().Be(1);
             result.Should().Contain(ruleAction2);
         }
 
         [Fact]
-        public void AddRule_NonEmptyRule_NoExceptio1n()
+        public void Run_MultipleRulesArePositive_ReturnsMultipleRuleActions()
+        {
+            // Arrange
+            var session = Mock.Of<ISession>(MockBehavior.Strict);
+            var fact = _fixture.Create<TestFact>();
+
+            var ruleAction1 = _fixture.Create<RuleAction>();
+            var rule1 = new Mock<IRule<object>>();
+            rule1.Setup(x => x.Fire(fact)).Returns(ruleAction1);
+
+            var ruleAction2 = _fixture.Create<RuleAction>();
+            var rule2 = new Mock<IRule<object>>();
+            rule2.Setup(x => x.Fire(fact)).Returns(ruleAction2);
+
+            _network.AddRule(rule1.Object);
+            _network.AddRule(rule2.Object);
+
+            // Act
+            var result = _network.Run(session, fact);
+
+            // Assert
+            result.Count().Should().Be(2);
+            result.Should().Contain(ruleAction1);
+            result.Should().Contain(ruleAction2);
+        }
+
+        [Fact]
+        public void Run_AllRulesAreNegative_ReturnsEmptyRuleActions()
+        {
+            // Arrange
+            var session = Mock.Of<ISession>(MockBehavior.Strict);
+            var fact = _fixture.Create<TestFact>();
+
+            var rule1 = new Mock<IRule<object>>();
+            rule1.Setup(x => x.Fire(fact)).Returns((RuleAction)null);
+
+            var rule2 = new Mock<IRule<object>>();
+            rule2.Setup(x => x.Fire(fact)).Returns((RuleAction)null);
+
+            _network.AddRule(rule1.Object);
+            _network.AddRule(rule2.Object);
+
+            // Act
+            var result = _network.Run(session, fact);
+
+            // Assert
+            result.Should().BeEmpty();
+        }
+
+        [Fact]
+        public void AddRule_NonEmptyRule_NoException()
         {
             // Arrange
             var session = Mock.Of<ISession>(MockBehavior.Strict);

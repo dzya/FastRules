@@ -31,7 +31,8 @@ namespace FastRules.Engine
 
         public void Build()
         {
-            network = _networkBuilder.Build();
+            network = _networkBuilder.Build(_rules);
+
             isBuilt = true;
         }
 

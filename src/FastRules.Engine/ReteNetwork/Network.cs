@@ -1,4 +1,5 @@
-﻿using FastRules.Engine.Rules;
+﻿using FastRules.Engine.ReteNetwork.Builders;
+using FastRules.Engine.Rules;
 using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
@@ -8,9 +9,16 @@ namespace FastRules.Engine.ReteNetwork
 {
     public class Network : INetwork
     {
-        private readonly List<IRule<object>> _rules = new List<IRule<object>>();
-
+        private readonly List<IRule<object>> _rules;
+        private readonly INodesBuilder _nodesBuilder;
         private bool isReady;
+        private RootNode root;
+
+        public Network(INodesBuilder nodesBuilder)
+        {
+            _rules = new List<IRule<object>>();
+            _nodesBuilder = nodesBuilder;
+        }
 
         public void AddRule(IRule<object> rule)
         {
@@ -24,6 +32,8 @@ namespace FastRules.Engine.ReteNetwork
 
         public void Build()
         {
+            root = (RootNode)_nodesBuilder.Build(_rules);
+
             isReady = true;
         }
 

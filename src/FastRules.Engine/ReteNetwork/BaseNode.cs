@@ -6,5 +6,6 @@ namespace FastRules.Engine.ReteNetwork
 {
     public abstract class BaseNode : IReteNode
     {
+        public IEnumerable<IReteNode>? Outputs { get; set; }
     }
 }

@@ -16,7 +16,9 @@ namespace FastRules.Engine.Tests
             var network = Mock.Of<INetwork>();
 
             _networkBuilder = new Mock<INetworkBuilder>();
-            _networkBuilder.Setup(x => x.Build()).Returns(network);
+            _networkBuilder.Setup(x => x.Build(
+                It.IsAny<IEnumerable<IRule<object>>>()) 
+                ).Returns(network);
 
             _engine = new Engine(_networkBuilder.Object);
             _auto = new Fixture();

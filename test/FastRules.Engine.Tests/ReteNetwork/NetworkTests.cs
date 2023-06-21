@@ -1,4 +1,5 @@
 ﻿using FastRules.Engine.ReteNetwork;
+using FastRules.Engine.ReteNetwork.Builders;
 using FastRules.Engine.Rules;
 using FastRules.Engine.Tests.TestData;
 using System;
@@ -13,11 +14,12 @@ namespace FastRules.Engine.Tests.ReteNetwork
     public class NetworkTests
     {
         private readonly Fixture _fixture = new Fixture();
+        private readonly Mock<INodesBuilder> _nodesBuilder;
         private readonly Network _network;
-
         public NetworkTests() 
         {
-            _network = new Network();
+            _nodesBuilder = new Mock<INodesBuilder>();
+            _network = new Network(_nodesBuilder.Object);
         }
 
         [Fact]

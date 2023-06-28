@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastRules.Engine", "FastRules.Engine\FastRules.Engine.csproj", "{6AB1B5F5-6FB0-4D4A-B6F3-F8C748E21A59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastRules.Engine.Tests", "..\test\FastRules.Engine.Tests\FastRules.Engine.Tests.csproj", "{1DA513BF-E77B-4DD9-802A-A141021CFCF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastRules.Engine.Tests", "..\test\FastRules.Engine.Tests\FastRules.Engine.Tests.csproj", "{1DA513BF-E77B-4DD9-802A-A141021CFCF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastRules.Spa", "FastRules.Spa\FastRules.Spa.csproj", "{EC43FE48-697C-4FD3-88C1-F6F51B0B88DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA513BF-E77B-4DD9-802A-A141021CFCF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC43FE48-697C-4FD3-88C1-F6F51B0B88DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC43FE48-697C-4FD3-88C1-F6F51B0B88DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC43FE48-697C-4FD3-88C1-F6F51B0B88DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC43FE48-697C-4FD3-88C1-F6F51B0B88DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
